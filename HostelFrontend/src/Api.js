@@ -1,6 +1,9 @@
 import axios from 'axios';
 
-const Base_Url = 'http://localhost:8080/students'
+// Set VITE_API_BASE_URL in a .env file (or in your Vercel project's
+// environment variables) to point at your deployed backend.
+// Falls back to localhost for local development.
+const Base_Url = (import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080') + '/students'
 
 export function AddStudent(student){
     return(axios.post(Base_Url, student))
